@@ -4,6 +4,6 @@ while true do
 
     event, arg1, arg2, arg3, arg4, arg5 = os.pullEvent()
     if event == "monitor_touch" then
-        print("DingDong at " ... arg2 ... "," ... arg3)
+        print("DingDong at " .. arg2 .. "," .. arg3)
     end
 end
