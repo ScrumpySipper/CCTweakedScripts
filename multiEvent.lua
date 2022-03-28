@@ -9,7 +9,7 @@ local startY = ysize / 2 - ybuttonsize / 2
 local endX = xsize / 2 + xbuttonsize / 2
 local endY = ysize / 2 + xbuttonsize / 2
 
-paintutils.drawFilledBox(startX, startY, endX, endY, colors.red) 
+monitor1.paintutils.drawFilledBox(startX, startY, endX, endY, colors.red) 
 
 
 while true do
