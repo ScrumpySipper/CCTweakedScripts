@@ -1,3 +1,17 @@
+
+monitor1 = peripheral.wrap("right")
+modem1 = peripheral.wrap("left")
+local xsize, ysize = monitor1.getSize()
+local xbuttonsize = 10
+local ybuttonsize = 10
+local startX = xsize / 2 - xbuttonsize / 2
+local startY = ysize / 2 - ybuttonsize / 2
+local endX = xsize / 2 + xbuttonsize / 2
+local endY = ysize / 2 + xbuttonsize / 2
+
+paintutils.drawFilledBox(startX, startY, endX, endY, colors.red) 
+
+
 while true do
 
     os.startTimer(0.5)
