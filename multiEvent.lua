@@ -9,15 +9,51 @@ local startY = ysize / 2 - ybuttonsize / 2
 local endX = xsize / 2 + xbuttonsize / 2
 local endY = ysize / 2 + xbuttonsize / 2
 
-monitor1.paintutils.drawFilledBox(startX, startY, endX, endY, colors.red) 
+term.redirect(monitor1)
+--paintutils.drawFilledBox(startX, startY, endX, endY, colors.red) 
 
+function buttonAdd(xpos, ypos, text)
+    local oldColor = term.getTextColor()
+    term.setCursorPos(xpos,ypos)
+    term.setTextColor(colors.red)
+    term.write(text)
+    x_end, y_end = term.getCursorPos()
+    local length = x_end - x_pos
+    local height = y_end - y_pos
+
+    term.setTextColor(oldColor)
+
+    return xpos, ypos, length, height
+end
+
+function checkButton(xpos,ypos,buttonProps)
+    local xstart = buttonProps[1]
+    local xend = xstart + buttonProps[3]
+    local ystart = buttonProps[2]
+    local yend = ystart + buttonProps[4]
+
+    if xpos > xstart and xpos < xend and ypos > ystart and ypos < yend then
+        return true
+    else
+        return false
+    end
+end
+
+props1 = {buttonAdd(3,3,"Click Me")}
 
 while true do
 
-    os.startTimer(0.5)
+    os.startTimer(0.5) --Timer will stop event blocking every half second for redraw
 
     event, arg1, arg2, arg3, arg4, arg5 = os.pullEvent()
     if event == "monitor_touch" then
+        term.setCursorPos(0,0)
         print("DingDong at " .. arg2 .. "," .. arg3)
+        if checkButton(arg2, arg3, props1) then
+            print("Button Clicked!")
+        else
+            print("Button Not Click!")
+        end
+
     end
 end
