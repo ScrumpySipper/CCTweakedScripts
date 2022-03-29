@@ -39,6 +39,8 @@ function checkButton(xpos,ypos,buttonProps)
     end
 end
 
+term.clear()
+
 props1 = {buttonAdd(3,3,"Click Me")}
 
 while true do
