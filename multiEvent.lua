@@ -43,7 +43,7 @@ end
 
 local redrawFlag = true
 local lastRedraw = os.time()
-local redrawPeriod = 0.05
+local redrawPeriod = 0.5
 
 while true do
 
