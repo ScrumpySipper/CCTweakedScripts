@@ -52,7 +52,7 @@ while true do
         term.setCursorPos(0,0)
         print("DingDong at " .. arg2 .. "," .. arg3)
         if checkButton(arg2, arg3, props1) then
-            print("Button Clicked! " .. arg2 .. "," arg3)
+            print("Button Clicked! " .. arg2 .. "," .. arg3)
         else
             print("Button Not Click! " .. arg2 .. "," .. arg3)
         end
