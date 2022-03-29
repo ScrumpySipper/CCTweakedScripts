@@ -39,22 +39,29 @@ function checkButton(xpos,ypos,buttonProps)
     end
 end
 
-term.clear()
 
-props1 = {buttonAdd(3,3,"Click Me")}
+
+local redrawFlag = true
 
 while true do
 
+    if(redrawFlag) then
+        term.clear()
+        props1 = {buttonAdd(3,3,"Click Me")}
+        redrawFlag = false
+    end
+    
     os.startTimer(0.5) --Timer will stop event blocking every half second for redraw
 
     event, arg1, arg2, arg3, arg4, arg5 = os.pullEvent()
     if event == "monitor_touch" then
         term.setCursorPos(0,0)
-        print("DingDong at " .. arg2 .. "," .. arg3)
+        --print("DingDong at " .. arg2 .. "," .. arg3)
         if checkButton(arg2, arg3, props1) then
             print("Button Clicked! " .. arg2 .. "," .. arg3)
+            redrawFlag = true
         else
-            print("Button Not Click! " .. arg2 .. "," .. arg3 .. " Not in: " .. props1[1] .. "," .. props1[2] .. "," .. props1[3]  .. "," .. props1[4])
+            --print("Button Not Click! " .. arg2 .. "," .. arg3 .. " Not in: " .. props1[1] .. "," .. props1[2] .. "," .. props1[3]  .. "," .. props1[4])
         end
 
     end
