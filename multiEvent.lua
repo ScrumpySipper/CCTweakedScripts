@@ -42,13 +42,16 @@ end
 
 
 local redrawFlag = true
+local lastRedraw = os.time()
+local redrawPeriod = 0.05
 
 while true do
 
-    if(redrawFlag) then
+    if redrawFlag or os.time() > lastRedraw() + redrawPeriod then
         term.clear()
         props1 = {buttonAdd(3,3,"Click Me")}
         redrawFlag = false
+        lastRedraw = os.time()
     end
     
     os.startTimer(0.5) --Timer will stop event blocking every half second for redraw
