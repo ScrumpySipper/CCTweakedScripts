@@ -32,7 +32,7 @@ function checkButton(xpos,ypos,buttonProps)
     local ystart = buttonProps[2]
     local yend = ystart + buttonProps[4]
 
-    if xpos > xstart and xpos < xend and ypos > ystart and ypos < yend then
+    if xpos >= xstart and xpos <= xend and ypos >= ystart and ypos <= yend then
         return true
     else
         return false
