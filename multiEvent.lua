@@ -43,7 +43,7 @@ end
 
 local redrawFlag = true
 local lastRedraw = os.time()
-local redrawPeriod = 0.5
+local redrawPeriod = 0.01
 
 while true do
 
@@ -62,10 +62,11 @@ while true do
         --print("DingDong at " .. arg2 .. "," .. arg3)
         if checkButton(arg2, arg3, props1) then
             print("Button Clicked! " .. arg2 .. "," .. arg3)
-            lastRedraw = os.time()
+            
         else
             --print("Button Not Click! " .. arg2 .. "," .. arg3 .. " Not in: " .. props1[1] .. "," .. props1[2] .. "," .. props1[3]  .. "," .. props1[4])
         end
+        lastRedraw = os.time()
 
     end
 end
