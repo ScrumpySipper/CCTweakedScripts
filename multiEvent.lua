@@ -18,8 +18,8 @@ function buttonAdd(xpos, ypos, text)
     term.setTextColor(colors.red)
     term.write(text)
     x_end, y_end = term.getCursorPos()
-    local length = x_end - x_pos
-    local height = y_end - y_pos
+    local length = x_end - xpos
+    local height = y_end - ypos
 
     term.setTextColor(oldColor)
 
