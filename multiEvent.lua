@@ -47,7 +47,7 @@ local redrawPeriod = 0.05
 
 while true do
 
-    if redrawFlag or os.time() > lastRedraw() + redrawPeriod then
+    if redrawFlag or os.time() > lastRedraw + redrawPeriod then
         term.clear()
         props1 = {buttonAdd(3,3,"Click Me")}
         redrawFlag = false
